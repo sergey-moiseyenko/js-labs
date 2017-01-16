@@ -1,23 +1,23 @@
 ;!function () {
   'use strict';
 
-  function Shape(name) {
-    this.name = name;
+  var shape = new Shape(5, 10, 15, 20);
+  shape.draw();
+
+  function Shape (x, y, width, height) {
+
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
 
     this.getName = function () {
-      return this.name;
+      return 'Shape';
     };
 
     this.draw = function () {
-      alert(formatName());
+      console.log(this.getName());
+      console.log('x: ' + this.x + ', y: ' + this.y + ', width: ' + this.width + ', height: ' + this.height);
     };
-
-    var formatName = function () {
-      return this.name + " with bind ";
-    }.bind(this);
   }
-
-  var shape = new Shape("Shape");
-  shape.draw();
-
 }();
