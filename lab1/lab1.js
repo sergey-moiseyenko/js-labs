@@ -1,9 +1,6 @@
 ;!function () {
   'use strict';
 
-  var shape = new Shape(5, 10, 15, 20);
-  shape.draw();
-
   function Shape (x, y, width, height) {
 
     this.x = x;
@@ -22,7 +19,7 @@
   }
 
   function Rectangle(x, y, width, height) {
-    Shape.call(this, x, y, width, height);
+    Shape.apply(this, arguments);
 
     this.getName = function () {
       return "Rectangle";
@@ -34,11 +31,8 @@
     }
   }
 
-  var rectangle = new Rectangle(50, 100, 150, 200);
-  rectangle.draw();
-
   function Ellipse(x, y, width, height) {
-    Shape.call(this, x, y, width,  height);
+    Shape.apply(this, arguments);
 
     this.getName = function () {
       return "Ellipse";
@@ -50,7 +44,9 @@
     }
   }
 
+  var rectangle = new Rectangle(50, 100, 150, 200);
+  rectangle.draw();
+
   var ellipse = new Ellipse(50, 100, 150, 200);
   ellipse.draw();
-
 }();
