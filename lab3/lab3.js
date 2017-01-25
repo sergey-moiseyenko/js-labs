@@ -19,7 +19,32 @@
     }
   }
 
-  let shape = new Shape(100, 200, 300, 400);
-  shape.draw();
+  class Rectangle extends Shape{
+
+    get name() {
+      return 'Rectangle';
+    }
+
+    draw() {
+      super.draw();
+    }
+  }
+
+  class Ellipse extends Shape{
+
+    get name() {
+      return 'Ellipse';
+    }
+
+    draw() {
+      super.draw();
+    }
+  }
+
+  let rectangle = new Rectangle(1, 2, 3, 4);
+  rectangle.draw();
+
+  let ellipse = new Ellipse(100, 200, 300, 400);
+  ellipse.draw();
 
 }();
